@@ -1,0 +1,15 @@
+<ul class="list-group" *ngIf="(cities$ | async) as results ; else noresult">
+  <li class="list-group-item" *ngFor="let city of results">
+    Name: {{ city.name}}
+    <br>
+    Degree: {{city.degree}} C
+    <br>
+    Country: {{city.country}}
+    <br>
+    WindSpeed: {{city.windSpeed}}
+  </li>
+</ul>
+
+<ng-template #noresult>
+  No cities are chosen yet
+</ng-template>

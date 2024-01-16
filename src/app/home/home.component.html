@@ -1,0 +1,20 @@
+<form #weatherForm="ngForm" (ngSubmit)="checkWeather()">
+  <div class="row mb-5">
+    <div class="form-group col-6">
+      <label for="weatherName">City Name</label>
+      <input type="text" required class="form-control" id="weatherName" name="weather" ngModel #weather="ngModel">
+    </div>
+  </div>
+
+  <div class="row col-6 mb-5">
+    <button type="submit" class="btn btn-primary" [disabled]="!weatherForm.valid">Check Weather!</button>
+  </div>
+</form>
+
+<div class="row col-6 mb-5" *ngIf="isLoading">
+  Loading ....
+</div>
+
+<div class="row col-6 mb-5" *ngIf="errorMessage">
+  {{errorMessage}}
+</div>
